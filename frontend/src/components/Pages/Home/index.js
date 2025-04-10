@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Typography, Grid, Tooltip } from '@material-ui/core';
 import TemplateCard from '../../organisms/TemplateCard';
-import { themes, animations, layouts, fonts, colorValues, quoteTypes } from '../../../config/cardTemplate';
+import { themes, animations, layouts, fonts, colorValues, quoteTypes, fontSizes } from '../../../config/cardTemplate';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import ContributorsCard from '../../ContributorsCard/ContributorCard'
@@ -24,6 +24,7 @@ const Home = () => {
     const [bgColor, setBgColor] = useState(null);
     const [borderColor, setBorderColor] = useState(null);
     const [quoteType, setQuoteType] = useState("random");
+    const [fontSize, setFontSize] = useState('16');
 
     const classes = useStyles();
 
@@ -158,11 +159,53 @@ const Home = () => {
                     />
                 </Grid>
 
+                <Grid item xs={12} sm={6} lg={3}>
+                    <Autocomplete
+                        id="font-size"
+                        options={fontSizes}
+                        value={fontSize}
+                        style={{ width: 300, margin: '0 auto' }}
+                        onChange={(_event, newValue) => {
+                            if (newValue != null)
+                                setFontSize(newValue)
+                        }}
+                        renderInput={(params) => <TextField {...params} label="Font Size" placeholder="Select a type" variant="outlined" />}
+                    />
+                </Grid>
+
+                <Grid item xs={12} sm={6} lg={3}>
+                    <Autocomplete
+                        id="quote-type"
+                        options={quoteTypes}
+                        value={quoteType}
+                        style={{ width: 300, margin: '0 auto' }}
+                        onChange={(_event, newValue) => {
+                            if (newValue != null)
+                                setQuoteType(newValue)
+                        }}
+                        renderInput={(params) => <TextField {...params} label="Font Height" placeholder="Select a type" variant="outlined" />}
+                    />
+                </Grid>
+
+                <Grid item xs={12} sm={6} lg={3}>
+                    <Autocomplete
+                        id="quote-type"
+                        options={quoteTypes}
+                        value={quoteType}
+                        style={{ width: 300, margin: '0 auto' }}
+                        onChange={(_event, newValue) => {
+                            if (newValue != null)
+                                setQuoteType(newValue)
+                        }}
+                        renderInput={(params) => <TextField {...params} label="Font Width" placeholder="Select a type" variant="outlined" />}
+                    />
+                </Grid>
+
             </Grid>
 
             <Grid container spacing={4}>
                 <Grid item xs={12} style={{ marginTop: '20px' }}>
-                    <TemplateCard theme={theme} animation={animation} layout={layout} font={font} fontColor={fontColor} bgColor={bgColor} borderColor={borderColor} quoteType={quoteType} />
+                    <TemplateCard theme={theme} animation={animation} layout={layout} font={font} fontColor={fontColor} bgColor={bgColor} borderColor={borderColor} quoteType={quoteType}  fontSize={fontSize}/>
                 </Grid>
                 <Grid item xs={12}>
                     <Typography align="center">Other layouts</Typography>
@@ -171,7 +214,7 @@ const Home = () => {
                     layouts.filter((item) => item !== layout).map((restLayout) => {
                         return (
                             <Grid key={restLayout} item xs={12} sm={12} md={6}>
-                                <TemplateCard theme={theme} animation={animation} layout={restLayout} font={font} fontColor={fontColor} bgColor={bgColor} borderColor={borderColor} quoteType={quoteType} />
+                                <TemplateCard theme={theme} animation={animation} layout={restLayout} font={font} fontColor={fontColor} bgColor={bgColor} borderColor={borderColor} quoteType={quoteType} fontSize={fontSize} />
                             </Grid>
                         )
                     })

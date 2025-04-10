@@ -17,7 +17,7 @@ const layouts = {
                   }
                   ${template.animation.keyframes}
                   .container h3 {
-                  font-size: 19px;
+                  font-size: ${template.size}px;
                   margin-bottom: 5px;
                   font-weight: 500;
                   font-style: oblique;
@@ -25,12 +25,12 @@ const layouts = {
                   }
                   .container h3::before {
                   content: open-quote;
-                  font-size: 25px;
+                  font-size: ${template.size * 1.5}px;
                   }
                   .container h3::after {
                   content: close-quote;
                   vertical-align: sub;
-                  font-size: 25px;
+                  font-size: ${template.size * 1.5}px;
                   }
                   .container p {
                   /* float: right; */
@@ -38,6 +38,7 @@ const layouts = {
                   font-style: italic;
                   padding: 5px;
                   text-align: right;
+                  font-size: ${template.size * 0.8}px;
                   color: ${template.theme.author_color};
                   }`;
         },
@@ -69,7 +70,7 @@ const layouts = {
                       margin:0;
                       padding:1em;
                       position:relative;
-                      font-size:15px;
+                      font-size:${template.size}px;
                       
                   }
                    .square-brackets-quote blockquote::before {
@@ -84,7 +85,7 @@ const layouts = {
                   .square-brackets-quote cite {
                       color: ${template.theme.quote_color};
                       display: block;
-                      font-size:small;
+                      font-size:${template.size * 0.8}px;
                       font-style: normal;
                       text-align: right;
                       text-transform:uppercase;
@@ -202,7 +203,7 @@ const layouts = {
                   }
                   p{
                     padding-top:0px;
-                    font-size:17px
+                    font-size:${template.size}px
                   }`;
         },
         structure: (template) => {
@@ -242,7 +243,7 @@ const layouts = {
                 };
                       display: inline-block;
                       margin: 0;
-                      font-size:16px;
+                      font-size:${template.size}px;
                       padding: 1em;
                       background: #fff;
                       -webkit-mask-image: radial-gradient(circle 0 at 0 0, transparent 0, transparent, black);
@@ -356,13 +357,13 @@ const layouts = {
                     }
                     .quote4 .txt{
                       color:#F3E9DC;
-                      font-size:16px; 
+                      font-size:${template.size}px; 
                     }
   
                     .quote4 .from{
                       text-align:center;
                       margin-top:15px;
-                      font-size:13px;
+                      font-size:${template.size * 0.8}px;
                       color: #5E3023;
                     }
   

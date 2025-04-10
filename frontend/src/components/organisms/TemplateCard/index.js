@@ -42,6 +42,7 @@ const TemplateCard = (props) => {
   template.setTheme(theme);
   template.setData(data);
   template.setFont(mainFonts[props.font]);
+  template.setFontSize(props.fontSize);
   template.setAnimation(mainAnimations[props.animation]);
   template.setBorderColor(borderColor);
   template.setLayout(mainLayouts[props.layout]);
